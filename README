@@ -1,0 +1,71 @@
+avichai
+
+
+
+
+=============================
+=      File description     =
+=============================
+Move.java - The Move class represents a move in the Nim game by a player.
+Board.java - The Board class represents a board of the Nim game.
+Player.java - The Player class represents a player in the Nim game.
+Competition.java - The Competition class represents a Nim competition between 
+					two players, consisting of a given number of rounds. 
+
+
+=============================
+=          Design           =
+=============================
+The design was given by the exercise.
+
+The Random player i designed is able to make any possible move in some probability,
+and i saw he wins about 7.5 percent of the games against the Heurist player on every
+100000 games(nice number for a random player).
+
+The Smart player i designed is based on a winning strategy against the random
+player. First the smart player see if there is a even or odd number of sticks 
+left on the field. If there is an even number of sticks left or there is only
+one last stick (in that case we don't have a choice) the smart player take
+one stick from the board to make the board a odd number of sticks fields.
+If there is an odd number of sticks left(and not one) the smart player tries
+(if possible) to take two sticks out of the board to keep the field with
+an odd number of sticks.
+With this strategy the smart player wins  about 85 percent of the games
+against the random player on every 100000 games.
+on the other hand he loses all the games against the Heurist player.
+
+
+=============================
+=  Implementation details   =
+=============================
+I added a few private methods to make the heavy method shorter and more 
+readable.
+In Competition class:
+	playRound() - Help method for play multipleRounds. 
+			This method play one round in the game.
+	Player playTurn(Player player, Board myBoard) - 
+								This method helps to the method play round.
+								This method play one turn in the game.
+									
+In Player class:
+	boolean chekIfValidMove(int leftBoubd, int rightBound, int row, Board board) -
+								Help to  produceRandomMove(Board board) method.
+								Checking if the Move instance that will be produced 
+								of the given arguments is valid in the given board.
+	Move pruduceSmartMoveForEvenSticksOnBoard(Board board, int row) - 
+								Help to produceSmartMove(Board board) method.
+								creates a smart move when there is an even 
+								number of sticks on the board.
+								
+	Move pruduceSmartMoveForOddSticksOnBoard(Board board, int row) -
+								Help to produceSmartMove(Board board) method.
+								creates a smart move when there is an odd 
+								number of sticks on the board.
+								
+	boolean isEmptyRow(Board board, int row) - 
+								checks if a row on a board has no sticks.
+
+=============================
+=    Answers to questions   =
+=============================
+no question this week.
